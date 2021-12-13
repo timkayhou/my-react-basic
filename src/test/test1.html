@@ -5,8 +5,7 @@
     <title>Test Title</title>
     <style>
       .title{
-        background-color:slategray;
-        color: skyblue;
+        background-color:slategray
       }
     </style>
   </head>
@@ -17,7 +16,8 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
       const hello = "Hello, react!"
-      const v_dom = <h1 className="title">{hello}</h1>
+      const v_dom = <h1 className="title" style={{
+        color: 'skyblue'}}>{hello}</h1>
       ReactDOM.render(v_dom, document.getElementById('test'))
     </script>
   </body>
