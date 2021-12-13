@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <title>Test Title</title>
+    <style>
+      .title{
+        background-color:slategray;
+        color: skyblue;
+      }
+    </style>
   </head>
   <body>
     <div id="test"></div>
@@ -11,7 +17,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
       const hello = "Hello, react!"
-      const v_dom = <h1>{hello}</h1>
+      const v_dom = <h1 className="title">{hello}</h1>
       ReactDOM.render(v_dom, document.getElementById('test'))
     </script>
   </body>
