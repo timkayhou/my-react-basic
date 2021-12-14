@@ -15,9 +15,20 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-      const hello = "Hello, react!"
-      const v_dom = <h1 className="title" style={{
-        color: 'skyblue'}}>{hello}</h1>
+      const hello = ["Hello, react!", "Hello, vue!", "Hello, angular!"]
+      const v_dom =
+        <h1 className="title"
+          style={{
+            color: 'skyblue'
+          }}>
+          <ul>
+            {
+              hello.map((item)=>{
+                return <li>{item}</li>
+              })
+            }
+          </ul>
+        </h1>
       ReactDOM.render(v_dom, document.getElementById('test'))
     </script>
   </body>
