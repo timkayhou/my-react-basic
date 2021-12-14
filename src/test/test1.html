@@ -29,7 +29,10 @@
             }
           </ul>
         </h1>
-      ReactDOM.render(v_dom, document.getElementById('test'))
+      function TestFunction() {
+        return v_dom
+      }
+      ReactDOM.render(<TestFunction/>, document.getElementById('test'))
     </script>
   </body>
 </html>
