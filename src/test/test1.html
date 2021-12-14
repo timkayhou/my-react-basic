@@ -23,8 +23,8 @@
           }}>
           <ul>
             {
-              hello.map((item)=>{
-                return <li>{item}</li>
+              hello.map((item, index)=>{
+                return <li key={index}>{item}</li>
               })
             }
           </ul>
