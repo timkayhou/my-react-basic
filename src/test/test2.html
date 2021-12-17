@@ -14,17 +14,13 @@
   <script type="text/babel">
     let that
     class Frontend extends React.Component{
-      constructor(props) {
-        super(props)
-        this.state = {isReact: true}
-        this.clickTest = this.clickTest.bind(this)
-      }
+      state = {isReact: true}
       render() {
         that = this
         const isReact = this.state.isReact
         return <h1 onClick={this.clickTest}>Hello, {isReact ? 'react' : 'vue'}!</h1>
       }
-      clickTest() {
+      clickTest = () => {
         const isReact = this.state.isReact
         this.setState({isReact: !isReact})
       }
