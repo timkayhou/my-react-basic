@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="test"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    let that
+    class Frontend extends React.Component{
+      constructor(props) {
+        super(props)
+        this.state = {isReact: true}
+        this.clickTest = this.clickTest.bind(this)
+      }
+      render() {
+        that = this
+        const isReact = this.state.isReact
+        return <h1 onClick={this.clickTest}>Hello, {isReact ? 'react' : 'vue'}!</h1>
+      }
+      clickTest() {
+        const isReact = this.state.isReact
+        this.setState({isReact: !isReact})
+      }
+    }
+    ReactDOM.render(<Frontend/>, document.getElementById('test'))
+  </script>
+</body>
+</html>
