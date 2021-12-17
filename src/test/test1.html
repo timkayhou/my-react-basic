@@ -29,8 +29,13 @@
             }
           </ul>
         </h1>
+      class MyComponent extends React.Component {
+        render() {
+          return v_dom
+        }
+      }
       function TestFunction() {
-        return v_dom
+        return <MyComponent/>
       }
       ReactDOM.render(<TestFunction/>, document.getElementById('test'))
     </script>
