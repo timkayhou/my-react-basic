@@ -18,7 +18,11 @@
       render() {
         that = this
         const isReact = this.state.isReact
-        return <h1 onClick={this.clickTest}>Hello, {isReact ? 'react' : 'vue'}!</h1>
+        return (
+          <h1 onClick={this.clickTest}>
+            Hello, {isReact ? 'react' : 'vue'}!
+          </h1>
+        )
       }
       clickTest = () => {
         const isReact = this.state.isReact
