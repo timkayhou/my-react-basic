@@ -13,23 +13,22 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     let that
-    class Frontend extends React.Component{
+    class Person extends React.Component{
       render() {
-        const {name, age, sex} = this.props
+        const {name, age, gender} = this.props
         return (
-          <ul>
-            <li>name: {name}</li>
-            <li>age: {age}</li>
-            <li>sex: {sex}</li>
-          </ul>
+          <div>
+            <ul>
+              <li>Name: {name}</li>
+              <li>Age: {age}</li>
+              <li>Gender: {gender}</li>
+            </ul>
+          </div>
         )
       }
-      clickTest = () => {
-        const isReact = this.state.isReact
-        this.setState({isReact: !isReact})
-      }
     }
-    ReactDOM.render(<Frontend/>, document.getElementById('test'))
+    const properties = {name: 'Arthur', age: 18, gender: 'Female'}
+    ReactDOM.render(<Person {...properties}/>, document.getElementById('test'))
   </script>
 </body>
 </html>
