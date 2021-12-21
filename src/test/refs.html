@@ -20,7 +20,7 @@
           alert(inputClick.value)
       }
       showBlurData = () => {
-        const {inputBlur} = this.refs
+        const {inputBlur} = this
         alert(inputBlur.value)
       }
       render() {
@@ -36,7 +36,7 @@
             </div>
             <div>
               <input
-                ref="inputBlur"
+                ref={f => this.inputBlur = f}
                 type="text"
                 placeholder="Blur"
                 onBlur={this.showBlurData}
