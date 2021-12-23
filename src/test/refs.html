@@ -17,11 +17,11 @@
         const {inputClick} = this.refs
         // Enter
         if (event.keyCode==13)
-          alert(inputClick.value)
+        alert(inputClick.value)
       }
+      inputBlur = React.createRef()
       showBlurData = () => {
-        const {inputBlur} = this
-        alert(inputBlur.value)
+        alert(this.inputBlur.current.value)
       }
       render() {
         return (
@@ -36,7 +36,7 @@
             </div>
             <div>
               <input
-                ref={f => this.inputBlur = f}
+                ref={this.inputBlur}
                 type="text"
                 placeholder="Blur"
                 onBlur={this.showBlurData}
