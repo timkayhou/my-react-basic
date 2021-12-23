@@ -23,6 +23,9 @@
       showBlurData = () => {
         alert(this.inputBlur.current.value)
       }
+      showChangeData = (event) => {
+        alert(event.target.value)
+      }
       render() {
         return (
           <div>
@@ -40,6 +43,13 @@
                 type="text"
                 placeholder="Blur"
                 onBlur={this.showBlurData}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Change"
+                onChange={this.showChangeData}
               />
             </div>
           </div>
