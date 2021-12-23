@@ -13,8 +13,10 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     class Buttons extends React.Component{
-      handleSubmit = () => {
+      handleSubmit = (event) => {
+        event.preventDefault()
         const {username, password} = this
+        alert(`${username.value}, ${password.value}`)
       }
       render() {
         return (
