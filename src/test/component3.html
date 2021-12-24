@@ -19,7 +19,7 @@
       }
       saveData = (dataName) => {
         return (event) => {
-          console.log([dataName], event.target.value)
+          this.setState({[dataName]: event.target.value})
         }
       }
       render() {
