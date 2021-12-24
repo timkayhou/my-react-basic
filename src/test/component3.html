@@ -17,11 +17,10 @@
         username: '',
         password: ''
       }
-      saveUsername = (event) => {
-        this.setState({username: event.target.value})
-      }
-      savePassword = (event) => {
-        this.setState({password: event.target.value})
+      saveData = (dataName) => {
+        return (event) => {
+          console.log(dataName, event.target.value)
+        }
       }
       render() {
         return (
@@ -31,12 +30,12 @@
               onSubmit={this.handleSubmit}
             >
               <input
-                onChange={this.saveUsername}
+                onChange={this.saveData('username')}
                 type="text"
                 name="username"
               />
               <input
-                onChange={this.savePassword}
+                onChange={this.saveData('password')}
                 type="password"
                 name="password"
               />
