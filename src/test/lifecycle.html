@@ -18,21 +18,9 @@
         this.state = {count: 0}
         console.log('constructor')
       }
-      addNum = () => {
-        const {count} = this.state
-        this.setState({count:count+1})
-      }
-      unmountDiv = () => {
-        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
-      }
-      componentDidMount() {
-        console.log('componentDidMount')
-      }
-      componentDidUpdate() {
-        console.log('componentDidUpdate')
-      }
-      componentWillUnmount() {
-        console.log('componentWillUnmount')
+      static getDerivedStateFromProps() {
+        console.log('getDerivedStateFromProps')
+        return null
       }
       render() {
         const {count} = this.state
@@ -44,6 +32,31 @@
             <button onClick={this.unmountDiv}>Unmount</button>
           </div>
         )
+      }
+      componentDidMount() {
+        console.log('componentDidMount')
+      }
+      shouldComponentUpdate() {
+        console.log('shouldComponentUpdate')
+        return null
+      }
+      addNum = () => {
+        console.log('addNum')
+        const {count} = this.state
+        this.setState({count:count+1})
+      }
+      getSnapshotBeforeUpdate() {
+        console.log('getSnapshotBeforeUpdate')
+      }
+      componentDidUpdate() {
+        console.log('componentDidUpdate')
+      }
+      unmountDiv = () => {
+        console.log('unmountDiv')
+        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+      }
+      componentWillUnmount() {
+        console.log('componentWillUnmount')
       }
     }
     ReactDOM.render(<Buttons />, document.getElementById('test'))
