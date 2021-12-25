@@ -20,12 +20,15 @@
         ReactDOM.unmountComponentAtNode(document.getElementById('test'))
       }
       componentDidMount() {
-        setInterval(() => {
+        this.timer = setInterval(() => {
           let {opacity} = this.state
           opacity -= 0.001
           if (opacity <= 0) opacity = 1
           this.setState({opacity})
         }, 1)
+      }
+      componentWillUnmount() {
+        clearInterval(this.timer)
       }
       render() {
         return (
