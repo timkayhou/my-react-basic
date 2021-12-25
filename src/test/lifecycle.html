@@ -15,9 +15,9 @@
     class Buttons extends React.Component{
       constructor(props) {
         super(props)
+        this.state = {count: 0}
         console.log('constructor')
       }
-      state = {count: 0}
       addNum = () => {
         const {count} = this.state
         this.setState({count:count+1})
