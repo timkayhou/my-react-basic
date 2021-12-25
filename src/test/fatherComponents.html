@@ -13,11 +13,21 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     class Father extends React.Component{
-      state = {carName: 'Benz'}
+      constructor(props) {
+        super(props)
+        this.state = {carName: 'Benz'}
+        console.log('father constructor')
+      }
+      static getDerivedStateFromProps() {
+        console.log('father getDerivedStateFromProps')
+        return null
+      }
       changeCar = () => {
+        console.log('father changeCar')
         this.setState({carName: 'Alto'})
       }
       render() {
+        console.log('father render')
         return (
           <div>
             <div>Father</div>
@@ -26,14 +36,56 @@
           </div>
         )
       }
+      componentDidMount() {
+        console.log('father componentDidMount')
+      }
+      shouldComponentUpdate() {
+        console.log('father shouldComponentUpdate')
+        return true
+      }
+      getSnapshotBeforeUpdate() {
+        console.log('father getSnapshotBeforeUpdate')
+        return null
+      }
+      componentDidUpdate() {
+        console.log('father componentDidUpdate')
+      }
     }
     class Child extends React.Component{
+      constructor(props) {
+        super(props)
+        this.state = {driverName: 'Arthur'}
+        console.log('child constructor')
+      }
+      static getDerivedStateFromProps() {
+        console.log('child getDerivedStateFromProps')
+        return null
+      }
+      changeCar = () => {
+        console.log('child changeCar')
+        this.setState({carName: 'Alto'})
+      }
       render() {
+        console.log('child render')
         return (
           <div>
             <div>{this.props.carName}</div>
           </div>
         )
+      }
+      componentDidMount() {
+        console.log('child componentDidMount')
+      }
+      shouldComponentUpdate() {
+        console.log('child shouldComponentUpdate')
+        return true
+      }
+      getSnapshotBeforeUpdate() {
+        console.log('child getSnapshotBeforeUpdate')
+        return null
+      }
+      componentDidUpdate() {
+        console.log('child componentDidUpdate')
       }
     }
     ReactDOM.render(<Father/>, document.getElementById('test'))
