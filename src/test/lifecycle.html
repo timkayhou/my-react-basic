@@ -29,21 +29,26 @@
           <div>
             <h2>Count: {count}</h2>
             <button onClick={this.addNum}>Add</button>
+            <button onClick={this.update}>Update</button>
             <button onClick={this.unmountDiv}>Unmount</button>
-          </div>
+            </div>
         )
       }
       componentDidMount() {
         console.log('componentDidMount')
       }
-      shouldComponentUpdate() {
-        console.log('shouldComponentUpdate')
-        return true
-      }
       addNum = () => {
         console.log('addNum')
         const {count} = this.state
         this.setState({count:count+1})
+      }
+      shouldComponentUpdate() {
+        console.log('shouldComponentUpdate')
+        return true
+      }
+      update = () => {
+        console.log('update')
+        this.forceUpdate()
       }
       getSnapshotBeforeUpdate() {
         console.log('getSnapshotBeforeUpdate')
