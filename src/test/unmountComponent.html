@@ -13,13 +13,24 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     class Buttons extends React.Component{
+      state = {
+        opacity: 1
+      }
       unmountDiv = () => {
         ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+      }
+      componentDidMount() {
+        setInterval(() => {
+          let {opacity} = this.state
+          opacity -= 0.001
+          if (opacity <= 0) opacity = 1
+          this.setState({opacity})
+        }, 1)
       }
       render() {
         return (
           <div>
-            <h2>React</h2>
+            <h2 style={{opacity: this.state.opacity}}>React</h2>
             <button onClick={this.unmountDiv}>Click</button>
           </div>
         )
